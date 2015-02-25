@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.Date;
 
 /**
  * Created by celder on 2/23/15.
@@ -42,7 +43,11 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 
         // add timestamp
         TextView timeCaption = (TextView) convertView.findViewById(R.id.timeCaption);
-        timeCaption.setText(DateUtils.getRelativeTimeSpanString(photo.timestamp));
+        String relativeTimeSpanStr = DateUtils.getRelativeTimeSpanString(photo.timestamp, new Date().getTime() / 1000, 0).toString();
+        Log.i("DEBUG", "photo.timestamp: " + photo.timestamp + ", current time: " + new Date().getTime());
+
+        Log.i("DEBUG", "setting timeCaption text to: " + relativeTimeSpanStr);
+        timeCaption.setText(relativeTimeSpanStr);
 
         // add photo caption
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
