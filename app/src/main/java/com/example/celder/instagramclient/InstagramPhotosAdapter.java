@@ -29,8 +29,9 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         }
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
-        Log.i("DEBUG", "setting tvCaption text to: " + photo.caption);
-        tvCaption.setText(photo.caption);
+        String captionText = photo.username + " -- " + photo.caption;
+        Log.i("DEBUG", "setting tvCaption text to: " + captionText);
+        tvCaption.setText(captionText);
         // clear out image view
         ivPhoto.setImageResource(0);
         // insert image using picasso
