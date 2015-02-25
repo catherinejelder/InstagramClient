@@ -9,4 +9,7 @@ public class InstagramPhoto {
     public String imageUrl;
     public int imageHeight;
     public int likesCount;
+
+    public long timestamp;
+    public String userImageUrl;
 }

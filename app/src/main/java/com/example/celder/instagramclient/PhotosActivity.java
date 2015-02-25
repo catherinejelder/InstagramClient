@@ -59,8 +59,14 @@ public class PhotosActivity extends ActionBarActivity {
                         photo.imageUrl = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
                         photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
+
+                        photo.timestamp = new Long(photoJSON.getString("created_time"));
+                        photo.userImageUrl = photoJSON.getJSONObject("user").getString("profile_picture");
+
                         Log.i("DEBUG", "adding photo with username: " + photo.username + ", caption: " + photo.caption +
-                                ", url: " + photo.imageUrl + ", height: " + photo.imageHeight + ", likesCount: " + photo.likesCount);
+                                ", url: " + photo.imageUrl + ", height: " + photo.imageHeight + ", likesCount: " + photo.likesCount +
+                                ", timestamp: " + photo.timestamp + ", userImageUrl: " + photo.userImageUrl);
+
                         photos.add(photo);
                         Log.i("DEBUG", "photos in array: " + photos.size());
                     }
